@@ -1,0 +1,60 @@
+# =========================
+# Dependências
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Cypress
+# =========================
+cypress/screenshots/
+.cypress.env.json
+
+# =========================
+# Allure
+# =========================
+allure-results/
+allure-report/
+.allure/
+
+# =========================
+# Cache
+# =========================
+.cache/
+.nyc_output/
+.eslintcache
+
+# =========================
+# Arquivos de ambiente
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Sistema Operacional
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs / Editores
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Build / dist
+# =========================
+dist/
+build/
+
+# =========================
+# Outros
+# =========================
+*.log
