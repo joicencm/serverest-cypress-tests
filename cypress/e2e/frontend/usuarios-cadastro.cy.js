@@ -1,41 +1,28 @@
+import { criarUsuario } from "../../support/helpers/usuarioHelper";
+
 import usuarioCadastroSteps from "../../support/steps/UsuarioCadastroSteps";
+import UsuarioFactory from "../../support/factories/UsuarioFactory";
 
 describe("Frontend - Cadastro de Usuário", () => {
   beforeEach(() => {
     cy.visit("/cadastrarusuarios");
-    cy.fixture("cadastroUsuario").as("cadastroUsuario");
   });
 
   it("Deve realizar cadastro com sucesso", function () {
-    const usuario = {
-      ...this.cadastroUsuario.usuario_valido,
-      email: `user${Date.now()}@email.com`,
-    };
-
-    console.log(usuario);
-    cy.log(JSON.stringify(usuario));
-    usuarioCadastroSteps.realizarCadastro(usuario);
+    criarUsuario();
 
     cy.contains("Cadastro realizado com sucesso").should("be.visible");
   });
 
-  //Não retorna erro do navegador
-  // it('Deve exibir mensagem para e-mail inválido', function () {
+  //Não retorna erro padrão. Retorna do navegador
+  // it("Deve exibir mensagem para e-mail inválido", function () {
+  //   criarUsuario();
 
-  //   usuarioCadastroSteps.realizarCadastro(
-  //     this.cadastroUsuario.usuario_email_invalido
-  //   );
-
-  //   cy.contains('Inclua um "@" no endereço de e-mail')
-  //     .should('exist');
-
+  //   cy.contains('Inclua um "@" no endereço de e-mail').should("exist");
   // });
 
   it("Deve exibir mensagem para email já cadastrado", function () {
-    const usuario = {
-      ...this.cadastroUsuario.usuario_valido,
-      email: `user${Date.now()}@email.com`,
-    };
+    const usuario = UsuarioFactory.novoUsuario();
 
     // Primeiro cadastro
     usuarioCadastroSteps.realizarCadastro(usuario);

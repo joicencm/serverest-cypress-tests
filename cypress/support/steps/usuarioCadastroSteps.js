@@ -1,12 +1,11 @@
-import UsuarioCadastroPage from '../pages/UsuarioCadastroPage';
+import UsuarioCadastroPage from "../pages/UsuarioCadastroPage";
 
 const usuarioCadastroSteps = {
   realizarCadastro(usuario) {
-    UsuarioCadastroPage.acessarPagina();
     UsuarioCadastroPage.preencherNome(usuario.nome);
     UsuarioCadastroPage.preencherEmail(usuario.email);
-    UsuarioCadastroPage.preencherSenha(usuario.senha);
-    UsuarioCadastroPage.preencherConfirmaSenha(usuario.senha);
+    UsuarioCadastroPage.preencherSenha(usuario.password);
+    UsuarioCadastroPage.preencherConfirmaSenha(usuario.password);
 
     if (usuario.administrador) {
       UsuarioCadastroPage.marcarCheckboxAdministrador();
@@ -17,9 +16,7 @@ const usuarioCadastroSteps = {
 
   clicarCadastrar() {
     UsuarioCadastroPage.clicarBotaoCadastrar();
-  }
+  },
 };
-
-
 
 export default usuarioCadastroSteps;

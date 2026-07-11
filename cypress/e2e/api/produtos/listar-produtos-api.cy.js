@@ -1,5 +1,6 @@
 import ProdutoService from "../../../support/services/ProdutoService";
-import { listarProdutosSchema } from "../../../support/schemas/listarProdutosSchema";
+
+import { listarProdutosSchema } from "../../../support/schemas/produto/listarProdutosSchema";
 import Ajv from "ajv";
 
 const ajv = new Ajv();
@@ -9,9 +10,8 @@ describe("API - Listar Produtos", () => {
     ProdutoService.listarProdutos().then((response) => {
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property("produtos");
-      const valid = ajv.validate(listarProdutosSchema, response.body);
 
-      expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+      cy.validarSchema(listarProdutosSchema, response.body);
     });
   });
 });

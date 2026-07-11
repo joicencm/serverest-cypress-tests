@@ -1,26 +1,24 @@
 const LoginFactory = {
-
-  usuarioValido() {
-    return {
-      email: 'teste@teste.com.br',
-      password: '123123'
-    };
-  },
-
   admin() {
     return {
-      email: 'fulano@qa.com',
-      password: 'teste'
+      email: "fulano@qa.com",
+      password: "teste",
     };
   },
 
   usuarioInvalido() {
     return {
-      email: 'email-invalido@test.com',
-      password: 'senhaerrada'
+      email: "email-invalido@test.com",
+      password: "senhaerrada",
     };
-  }
+  },
 
+  emailMalFormatado() {
+    return {
+      email: "fulanoqa.com",
+      password: "teste",
+    };
+  },
 };
 
 export default LoginFactory;

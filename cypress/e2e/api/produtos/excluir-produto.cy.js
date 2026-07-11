@@ -1,8 +1,12 @@
 import AuthService from "../../../support/services/AuthService";
+
 import ProdutoService from "../../../support/services/ProdutoService";
-import { messageSchema } from "../../../support/schemas/messageSchema";
-import { errorSchema } from "../../../support/schemas/errorSchema";
 import ProdutoFactory from "../../../support/factories/ProdutoFactory";
+
+import { successMessageResponseSchema } from "../../../support/schemas/common/successMessageResponseSchema";
+import { validationErrorResponseSchema } from "../../../support/schemas/common/validationErrorResponseSchema";
+import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
+import { invalidProductIdResponseSchema } from "../../../support/schemas/produto/invalidProductIdResponseSchema";
 import Ajv from "ajv";
 
 const ajv = new Ajv();
@@ -25,9 +29,7 @@ describe("API - Excluir Produtos", () => {
       ProdutoService.deletarProduto(produtoId, token).then((response) => {
         expect(response.status).to.equal(200);
 
-        const valid = ajv.validate(messageSchema, response.body);
-
-        expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+        cy.validarSchema(successMessageResponseSchema, response.body);
 
         expect(response.body.message).to.equal("Registro excluído com sucesso");
       });
@@ -43,9 +45,8 @@ describe("API - Excluir Produtos", () => {
       ProdutoService.deletarProduto(produtoId).then((response) => {
         expect(response.status).to.equal(401);
 
-        const valid = ajv.validate(messageSchema, response.body);
+        cy.validarSchema(unauthorizedResponseSchema, response.body);
 
-        expect(valid, JSON.stringify(ajv.errors)).to.be.true;
         expect(response.body.message).to.equal(
           "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais",
         );
@@ -60,9 +61,8 @@ describe("API - Excluir Produtos", () => {
   //     ProdutoService.deletarProduto(produtoId, token).then((response) => {
   //       expect(response.status).to.equal(400);
 
-  //       const valid = ajv.validate(errorSchema, response.body);
+  //       const valid = ajv.validate(invalidProductIdResponseSchema, response.body);
 
-  //       expect(valid, JSON.stringify(ajv.errors)).to.be.true;
   //       expect(response.body.id).to.equal(
   //         'id deve ter exatamente 16 caracteres alfanuméricos"\n',
   //       );
@@ -70,14 +70,12 @@ describe("API - Excluir Produtos", () => {
   //   });
 
   it("Deve retornar erro ao excluir produto com id inválido", () => {
-    const produtoId = "id_inválido";
+    const produtoId = "id_invalido";
 
     ProdutoService.deletarProduto(produtoId, token).then((response) => {
       expect(response.status).to.equal(400);
 
-      const valid = ajv.validate(errorSchema, response.body);
-
-      expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+      cy.validarSchema(invalidProductIdResponseSchema, response.body);
 
       expect(response.body.id).to.equal(
         "id deve ter exatamente 16 caracteres alfanuméricos",

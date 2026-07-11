@@ -1,0 +1,7 @@
+export const fieldValidationErrorSchema = {
+  type: "object",
+  minProperties: 1,
+  additionalProperties: {
+    type: "string",
+  },
+};

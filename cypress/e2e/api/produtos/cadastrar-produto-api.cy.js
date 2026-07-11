@@ -1,9 +1,11 @@
 import AuthService from "../../../support/services/AuthService";
+
 import ProdutoService from "../../../support/services/ProdutoService";
-import { cadastrarProdutoSchema } from "../../../support/schemas/cadastrarProdutoSchema";
-import { messageSchema } from "../../../support/schemas/messageSchema";
-import { produtoInvalidoSchema } from "../../../support/schemas/produtoInvalidoSchema";
 import ProdutoFactory from "../../../support/factories/ProdutoFactory";
+
+import { cadastrarProdutoSchema } from "../../../support/schemas/produto/cadastrarProdutoSchema";
+import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
+import { produtoInvalidoSchema } from "../../../support/schemas/produto/produtoInvalidoSchema";
 import Ajv from "ajv";
 
 const ajv = new Ajv();
@@ -23,8 +25,8 @@ describe("API - Cadastrar Produtos", () => {
     ProdutoService.criarProduto(novoProduto, token).then((response) => {
       expect(response.status).to.equal(201);
       expect(response.body).to.have.property("_id");
-      const valid = ajv.validate(cadastrarProdutoSchema, response.body);
-      expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+
+      cy.validarSchema(cadastrarProdutoSchema, response.body);
     });
   });
 
@@ -34,8 +36,7 @@ describe("API - Cadastrar Produtos", () => {
     ProdutoService.criarProduto(novoProduto).then((response) => {
       expect(response.status).to.equal(401);
 
-      const valid = ajv.validate(messageSchema, response.body);
-      expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+      cy.validarSchema(unauthorizedResponseSchema, response.body);
     });
   });
 
@@ -44,8 +45,8 @@ describe("API - Cadastrar Produtos", () => {
 
     ProdutoService.criarProduto(produtoInvalido, token).then((response) => {
       expect(response.status).to.equal(400);
-      const valid = ajv.validate(produtoInvalidoSchema, response.body);
-      expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+
+      cy.validarSchema(produtoInvalidoSchema, response.body);
     });
   });
 });

@@ -1,8 +1,8 @@
-import UsuarioCadastroElements from '../elements/UsuarioCadastroElements';
+import UsuarioCadastroElements from "../elements/UsuarioCadastroElements";
 
 class UsuarioCadastroPage {
   acessarPagina() {
-    cy.visit('/cadastrarusuarios');
+    cy.visit("/cadastrarusuarios");
   }
 
   preencherNome(nome) {
@@ -13,8 +13,8 @@ class UsuarioCadastroPage {
     cy.get(UsuarioCadastroElements.emailInput).type(email);
   }
 
-  preencherSenha(senha) {
-    cy.get(UsuarioCadastroElements.senhaInput).type(senha);
+  preencherSenha(password) {
+    cy.get(UsuarioCadastroElements.confirmaSenhaInput).type(password);
   }
 
   preencherConfirmaSenha(confirmaSenha) {
@@ -30,11 +30,11 @@ class UsuarioCadastroPage {
   }
 
   verificarMensagemErro(mensagem) {
-    cy.get(UsuarioCadastroElements.mensagemErro).should('contain', mensagem);
+    cy.get(UsuarioCadastroElements.mensagemErro).should("contain", mensagem);
   }
 
   verificarMensagemSucesso(mensagem) {
-    cy.get(UsuarioCadastroElements.mensagemSucesso).should('contain', mensagem);
+    cy.get(UsuarioCadastroElements.mensagemSucesso).should("contain", mensagem);
   }
 }
 

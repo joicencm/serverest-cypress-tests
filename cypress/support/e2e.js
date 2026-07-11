@@ -14,10 +14,11 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands/index.js'
+import "./commands/index.js";
+import "./commands/schemaCommands";
 
 // Import validations
-import './validations/index.js'
+import "./validations/index.js";
 
 // Import utils
-import './utils/index.js'
+import "./utils/index.js";

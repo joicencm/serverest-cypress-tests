@@ -1,9 +1,11 @@
 import AuthService from "../../../support/services/AuthService";
+
 import ProdutoService from "../../../support/services/ProdutoService";
 import ProdutoFactory from "../../../support/factories/ProdutoFactory";
-import { messageSchema } from "../../../support/schemas/messageSchema";
-import { errorSchema } from "../../../support/schemas/errorSchema";
-import { produtoInvalidoSchema } from "../../../support/schemas/produtoInvalidoSchema";
+
+import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
+import { successMessageResponseSchema } from "../../../support/schemas/common/successMessageResponseSchema";
+import { produtoInvalidoSchema } from "../../../support/schemas/produto/produtoInvalidoSchema";
 import Ajv from "ajv";
 
 const ajv = new Ajv();
@@ -33,9 +35,7 @@ describe("API - Atualizar Produtos", () => {
         (response) => {
           expect(response.status).to.equal(200);
 
-          const valid = ajv.validate(messageSchema, response.body);
-
-          expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+          cy.validarSchema(successMessageResponseSchema, response.body);
 
           expect(response.body.message).to.equal(
             "Registro alterado com sucesso",
@@ -54,9 +54,7 @@ describe("API - Atualizar Produtos", () => {
       ProdutoService.atualizarProduto(produtoId, produto).then((response) => {
         expect(response.status).to.equal(401);
 
-        const valid = ajv.validate(errorSchema, response.body);
-
-        expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+        cy.validarSchema(unauthorizedResponseSchema, response.body);
       });
     });
   });
@@ -73,9 +71,7 @@ describe("API - Atualizar Produtos", () => {
         (response) => {
           expect(response.status).to.equal(400);
 
-          const valid = ajv.validate(produtoInvalidoSchema, response.body);
-
-          expect(valid, JSON.stringify(ajv.errors)).to.be.true;
+          cy.validarSchema(produtoInvalidoSchema, response.body);
         },
       );
     });
