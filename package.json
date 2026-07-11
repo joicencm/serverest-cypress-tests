@@ -26,6 +26,8 @@
   "devDependencies": {
     "ajv": "^8.20.0",
     "chai-json-schema": "^2.0.1",
-    "cypress": "^15.18.1"
+    "cypress": "^15.18.1",
+    "allure-commandline": "^2.36.0",
+    "allure-cypress": "^3.2.0"
   }
 }

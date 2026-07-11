@@ -22,3 +22,6 @@ import "./validations/index.js";
 
 // Import utils
 import "./utils/index.js";
+
+//Importa Allure - Relatório
+import "allure-cypress";
