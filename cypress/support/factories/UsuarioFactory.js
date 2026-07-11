@@ -4,7 +4,7 @@ const UsuarioFactory = {
   novoUsuario(administrador = false) {
     return {
       nome: utils.gerarNome(),
-      email: utils.gerarEmail(this.comum),
+      email: utils.gerarEmail("comum"),
       password: "Teste@123",
       administrador,
     };
@@ -13,7 +13,7 @@ const UsuarioFactory = {
   admin() {
     return {
       nome: `Administrador${utils.gerarNome()}`,
-      email: utils.gerarEmail(admin),
+      email: utils.gerarEmail("admin"),
       password: "Teste@123",
       administrador: "true",
     };
