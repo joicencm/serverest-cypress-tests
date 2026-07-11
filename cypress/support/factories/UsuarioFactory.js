@@ -1,8 +1,10 @@
+import utils from "../utils";
+
 const UsuarioFactory = {
   novoUsuario(administrador = false) {
     return {
-      nome: "Usuário Teste",
-      email: `usuario${Date.now()}@teste.com`,
+      nome: utils.gerarNome(),
+      email: utils.gerarEmail(this.comum),
       password: "Teste@123",
       administrador,
     };
@@ -10,8 +12,8 @@ const UsuarioFactory = {
 
   admin() {
     return {
-      nome: "Administrador Teste",
-      email: `admin${Date.now()}@teste.com`,
+      nome: `Administrador${utils.gerarNome()}`,
+      email: utils.gerarEmail(admin),
       password: "Teste@123",
       administrador: "true",
     };

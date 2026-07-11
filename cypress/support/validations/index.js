@@ -2,7 +2,7 @@ const validations = {
   // Validações de autenticação
   verificarLoginComSucesso() {
     cy.url().should("not.include", "/login");
-    cy.contains("Bem-vindo").should("be.visible");
+    cy.contains("Serverest Store").should("be.visible");
   },
 
   verificarLogout() {
@@ -19,7 +19,7 @@ const validations = {
   },
 
   // Validações de carrinho
-  verificarProdutoNoCarrinho(nomeProduto) {
+  verificarProduto(nomeProduto) {
     cy.contains(nomeProduto).should("be.visible");
   },
 
@@ -30,6 +30,10 @@ const validations = {
   // Validações de dados
   verificarEmail(email) {
     cy.get('input[type="email"]').should("have.value", email);
+  },
+
+  validaMensagem(mensagem) {
+    cy.contains(mensagem).should("be.visible");
   },
 };
 

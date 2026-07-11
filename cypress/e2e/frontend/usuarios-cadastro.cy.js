@@ -3,6 +3,9 @@ import { criarUsuario } from "../../support/helpers/usuarioHelper";
 import usuarioCadastroSteps from "../../support/steps/UsuarioCadastroSteps";
 import UsuarioFactory from "../../support/factories/UsuarioFactory";
 
+import validation from "../../support/validations";
+import utils from "../../support/utils";
+
 describe("Frontend - Cadastro de Usuário", () => {
   beforeEach(() => {
     cy.visit("/cadastrarusuarios");
@@ -11,14 +14,14 @@ describe("Frontend - Cadastro de Usuário", () => {
   it("Deve realizar cadastro com sucesso", function () {
     criarUsuario();
 
-    cy.contains("Cadastro realizado com sucesso").should("be.visible");
+    validation.validaMensagem("Cadastro realizado com sucesso");
   });
 
   //Não retorna erro padrão. Retorna do navegador
   // it("Deve exibir mensagem para e-mail inválido", function () {
   //   criarUsuario();
 
-  //   cy.contains('Inclua um "@" no endereço de e-mail').should("exist");
+  // validation.validaMensagem('Inclua um "@" no endereço de e-mail');
   // });
 
   it("Deve exibir mensagem para email já cadastrado", function () {
@@ -27,7 +30,7 @@ describe("Frontend - Cadastro de Usuário", () => {
     // Primeiro cadastro
     usuarioCadastroSteps.realizarCadastro(usuario);
 
-    cy.contains("Cadastro realizado com sucesso").should("be.visible");
+    validation.validaMensagem("Cadastro realizado com sucesso");
 
     // Volta para a tela de cadastro
     cy.visit("/cadastrarusuarios");
@@ -35,15 +38,15 @@ describe("Frontend - Cadastro de Usuário", () => {
     // Tenta cadastrar novamente com o mesmo e-mail
     usuarioCadastroSteps.realizarCadastro(usuario);
 
-    cy.contains("Este email já está sendo usado").should("be.visible");
+    validation.validaMensagem("Este email já está sendo usado");
   });
 
   it("Deve exibir mensagem para camopos obrigatórios não preenchidos", function () {
     console.log(usuarioCadastroSteps);
     usuarioCadastroSteps.clicarCadastrar();
-    cy.wait(1000);
-    cy.contains("Nome é obrigatório").should("exist");
-    cy.contains("Email é obrigatório").should("exist");
-    cy.contains("Password é obrigatório").should("exist");
+    utils.aguardar(1000);
+    validation.validaMensagem("Nome é obrigatório");
+    validation.validaMensagem("Email é obrigatório");
+    validation.validaMensagem("Password é obrigatório");
   });
 });

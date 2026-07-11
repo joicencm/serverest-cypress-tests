@@ -3,6 +3,8 @@ import { criarUsuario } from "../../support/helpers/usuarioHelper";
 import loginSteps from "../../support/steps/loginSteps";
 import LoginFactory from "../../support/factories/LoginFactory";
 
+import validation from "../../support/validations";
+
 describe("Frontend - Login", () => {
   beforeEach(() => {
     cy.visit("/cadastrarusuarios");
@@ -11,20 +13,20 @@ describe("Frontend - Login", () => {
   it("Deve realizar login com sucesso", () => {
     criarUsuario();
 
-    cy.contains("Serverest Store").should("be.visible");
+    validation.verificarLoginComSucesso();
   });
 
   it("Deve exibir erro ao fazer login com credenciais inválidas", () => {
     loginSteps.realizarLogin(LoginFactory.usuarioInvalido());
 
-    cy.contains("Email e/ou senha inválidos").should("be.visible");
+    validation.validaMensagem("Email e/ou senha inválidos");
   });
 
   it("Deve exibir erro ao fazer login com campos em brancos", () => {
     cy.visit("/");
     loginSteps.clicarEntrar();
 
-    cy.contains("Email é obrigatório").should("be.visible");
-    cy.contains("Password é obrigatório").should("be.visible");
+    validation.validaMensagem("Email é obrigatório");
+    validation.validaMensagem("Password é obrigatório");
   });
 });

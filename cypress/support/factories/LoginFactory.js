@@ -1,11 +1,4 @@
 const LoginFactory = {
-  admin() {
-    return {
-      email: "fulano@qa.com",
-      password: "teste",
-    };
-  },
-
   usuarioInvalido() {
     return {
       email: "email-invalido@test.com",
