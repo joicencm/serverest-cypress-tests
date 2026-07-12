@@ -6,9 +6,6 @@ import ProdutoFactory from "../../../support/factories/ProdutoFactory";
 import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
 import { successMessageResponseSchema } from "../../../support/schemas/common/successMessageResponseSchema";
 import { produtoInvalidoSchema } from "../../../support/schemas/produto/produtoInvalidoSchema";
-import Ajv from "ajv";
-
-const ajv = new Ajv();
 
 describe("API - Atualizar Produtos", () => {
   let token;

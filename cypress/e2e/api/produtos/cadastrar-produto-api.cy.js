@@ -6,9 +6,6 @@ import ProdutoFactory from "../../../support/factories/ProdutoFactory";
 import { cadastrarProdutoSchema } from "../../../support/schemas/produto/cadastrarProdutoSchema";
 import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
 import { produtoInvalidoSchema } from "../../../support/schemas/produto/produtoInvalidoSchema";
-import Ajv from "ajv";
-
-const ajv = new Ajv();
 
 describe("API - Cadastrar Produtos", () => {
   let token;

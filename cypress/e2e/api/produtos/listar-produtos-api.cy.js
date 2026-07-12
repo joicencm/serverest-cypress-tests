@@ -1,9 +1,6 @@
 import ProdutoService from "../../../support/services/ProdutoService";
 
 import { listarProdutosSchema } from "../../../support/schemas/produto/listarProdutosSchema";
-import Ajv from "ajv";
-
-const ajv = new Ajv();
 
 describe("API - Listar Produtos", () => {
   it("Deve listar produtos", () => {

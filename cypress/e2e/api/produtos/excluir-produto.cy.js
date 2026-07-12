@@ -7,9 +7,6 @@ import { successMessageResponseSchema } from "../../../support/schemas/common/su
 import { validationErrorResponseSchema } from "../../../support/schemas/common/validationErrorResponseSchema";
 import { unauthorizedResponseSchema } from "../../../support/schemas/common/unauthorizedResponseSchema";
 import { invalidProductIdResponseSchema } from "../../../support/schemas/produto/invalidProductIdResponseSchema";
-import Ajv from "ajv";
-
-const ajv = new Ajv();
 
 describe("API - Excluir Produtos", () => {
   let token;
