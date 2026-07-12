@@ -14,4 +14,14 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands/index.js";
+import "./commands/schemaCommands";
+
+// Import validations
+import "./validations/index.js";
+
+// Import utils
+import "./utils/index.js";
+
+//Importa Allure - Relatório
+import "allure-cypress";

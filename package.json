@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:frontend": "cypress run --spec 'cypress/e2e/frontend/**/*.cy.js'",
+    "test:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.js'",
+    "test:headed": "cypress run --headed",
+    "test:debug": "cypress run --debug"
   },
   "repository": {
     "type": "git",
@@ -19,6 +24,10 @@
   },
   "homepage": "https://github.com/joicencm/serverest-cypress-tests#readme",
   "devDependencies": {
-    "cypress": "^15.18.1"
+    "ajv": "^8.20.0",
+    "chai-json-schema": "^2.0.1",
+    "cypress": "^15.18.1",
+    "allure-commandline": "^2.36.0",
+    "allure-cypress": "^3.2.0"
   }
 }

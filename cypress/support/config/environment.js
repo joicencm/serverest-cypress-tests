@@ -1,0 +1,4 @@
+export const environment = {
+  apiUrl: 'https://serverest.dev',
+  frontUrl: 'https://front.serverest.dev'
+};

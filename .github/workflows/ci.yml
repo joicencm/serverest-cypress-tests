@@ -1,0 +1,55 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Executar testes Cypress
+        run: npx cypress run
+
+      - name: Gerar relatório Allure
+        if: always()
+        run: npx allure generate allure-results --clean -o allure-report
+
+      - name: Configurar GitHub Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Enviar relatório
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report
+
+  deploy:
+    if: always()
+    needs: test
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

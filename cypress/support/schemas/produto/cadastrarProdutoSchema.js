@@ -1,0 +1,16 @@
+export const cadastrarProdutoSchema = {
+  type: 'object',
+  required: [
+    'message',
+    '_id'
+  ],
+  additionalProperties: false,
+  properties: {
+    message: {
+      type: 'string'
+    },
+    _id: {
+      type: 'string'
+    }
+  }
+};
