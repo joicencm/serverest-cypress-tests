@@ -54,6 +54,7 @@ Validação dos serviços REST da aplicação:
 - Node.js
 - Git
 - GitHub Actions (CI/CD)
+- Allure - Status Report
 
 ---
 
@@ -71,7 +72,7 @@ https://serverest.dev/
 
 # 📁 Estrutura do Projeto
 
-````text
+```text
 serverest-cypress-tests
 │
 ├── cypress
@@ -107,6 +108,8 @@ serverest-cypress-tests
 ├── package.json
 ├── .gitignore
 └── README.md
+```
+
 ---
 
 ## ✅ Cenários Automatizados
@@ -165,7 +168,7 @@ O processo contempla:
 
 ```bash
 git clone https://github.com/joicencm/serverest-cypress-tests.git
-````
+```
 
 ### 2. Acessar a pasta do projeto
 
