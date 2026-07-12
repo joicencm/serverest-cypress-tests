@@ -1,4 +1,4 @@
-import { criarUsuario } from "../../support/helpers/usuarioHelper";
+import { criarUsuario } from "../../support/helpers/UsuarioHelper";
 
 import loginSteps from "../../support/steps/loginSteps";
 import LoginFactory from "../../support/factories/LoginFactory";
