@@ -1,7 +1,7 @@
-import { criarUsuario } from "../../support/helpers/UsuarioHelper";
+import { criarUsuario } from "../../support/helpers/usuarioHelper";
 
 import loginSteps from "../../support/steps/loginSteps";
-import LoginFactory from "../../support/factories/LoginFactory";
+import LoginFactory from "../../support/factories/loginFactory";
 
 import validation from "../../support/validations/index";
 

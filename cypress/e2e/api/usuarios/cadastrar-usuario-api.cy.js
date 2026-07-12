@@ -1,5 +1,5 @@
-import UsuarioService from "../../../support/services/UsuarioService";
-import UsuarioFactory from "../../../support/factories/UsuarioFactory";
+import UsuarioService from "../../../support/services/usuarioService";
+import UsuarioFactory from "../../../support/factories/usuarioFactory";
 
 import { cadastrarUsuarioSchema } from "../../../support/schemas/usuario/cadastrarUsuarioSchema";
 import { fieldValidationErrorSchema } from "../../../support/schemas/common/fieldValidationErrorSchema";

@@ -1,7 +1,7 @@
-import AuthService from "../../../support/services/AuthService";
+import AuthService from "../../../support/services/authService";
 
-import ProdutoService from "../../../support/services/ProdutoService";
-import ProdutoFactory from "../../../support/factories/ProdutoFactory";
+import ProdutoService from "../../../support/services/produtoService";
+import ProdutoFactory from "../../../support/factories/produtoFactory";
 
 import { successMessageResponseSchema } from "../../../support/schemas/common/successMessageResponseSchema";
 import { validationErrorResponseSchema } from "../../../support/schemas/common/validationErrorResponseSchema";

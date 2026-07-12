@@ -1,4 +1,4 @@
-import UsuarioCadastroElements from "../elements/UsuarioCadastroElements";
+import UsuarioCadastroElements from "../elements/usuarioCadastroElements";
 
 class UsuarioCadastroPage {
   acessarPagina() {

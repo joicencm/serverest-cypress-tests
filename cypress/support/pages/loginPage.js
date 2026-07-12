@@ -1,8 +1,8 @@
-import LoginElements from '../elements/LoginElements';
+import LoginElements from "../elements/loginElements";
 
 class LoginPage {
   acessarPagina() {
-    cy.visit('/login');
+    cy.visit("/login");
   }
 
   preencherEmail(email) {
@@ -18,7 +18,7 @@ class LoginPage {
   }
 
   verificarMensagemErro(mensagem) {
-    cy.get(LoginElements.mensagemErro).should('contain', mensagem);
+    cy.get(LoginElements.mensagemErro).should("contain", mensagem);
   }
 
   clicarLinkCadastro() {

@@ -1,4 +1,4 @@
-import UsuarioCadastroPage from "../pages/UsuarioCadastroPage";
+import UsuarioCadastroPage from "../pages/usuarioCadastroPage";
 
 const usuarioCadastroSteps = {
   realizarCadastro(usuario) {

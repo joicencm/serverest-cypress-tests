@@ -1,4 +1,4 @@
-import UsuarioService from "../../../support/services/UsuarioService";
+import UsuarioService from "../../../support/services/usuarioService";
 
 import { listarUsuariosSchema } from "../../../support/schemas/usuario/listarUsuariosSchema";
 

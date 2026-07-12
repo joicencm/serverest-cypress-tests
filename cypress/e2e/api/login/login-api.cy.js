@@ -1,8 +1,8 @@
-import UsuarioService from "../../../support/services/UsuarioService";
-import UsuarioFactory from "../../../support/factories/UsuarioFactory";
+import UsuarioService from "../../../support/services/usuarioService";
+import UsuarioFactory from "../../../support/factories/usuarioFactory";
 
-import LoginService from "../../../support/services/LoginService";
-import LoginFactory from "../../../support/factories/LoginFactory";
+import LoginService from "../../../support/services/loginService";
+import LoginFactory from "../../../support/factories/loginFactory";
 
 import { loginSchema } from "../../../support/schemas/login/loginSchema";
 import { fieldValidationErrorSchema } from "../../../support/schemas/common/fieldValidationErrorSchema";

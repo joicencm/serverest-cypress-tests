@@ -1,4 +1,4 @@
-import ProdutoService from "../../../support/services/ProdutoService";
+import ProdutoService from "../../../support/services/produtoService";
 
 import { listarProdutosSchema } from "../../../support/schemas/produto/listarProdutosSchema";
 

@@ -1,4 +1,4 @@
-import ListarProdutoPage from '../pages/ListarProdutoPage';
+import ListarProdutoPage from "../pages/listarProdutoPage";
 
 const listarProdutoSteps = {
   pesquisarProduto(nomeProduto) {
@@ -16,7 +16,6 @@ const listarProdutoSteps = {
   removerProdutoDaLista() {
     ListarProdutoPage.removerProdutoDaLista();
   },
-
 };
 
 export default listarProdutoSteps;

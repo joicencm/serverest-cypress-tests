@@ -1,5 +1,5 @@
-import usuarioCadastroSteps from "../steps/UsuarioCadastroSteps";
-import UsuarioFactory from "../factories/UsuarioFactory";
+import usuarioCadastroSteps from "../steps/usuarioCadastroSteps";
+import UsuarioFactory from "../factories/usuarioFactory";
 
 export function criarUsuario() {
   const usuario = UsuarioFactory.novoUsuario();
