@@ -1,7 +1,7 @@
 import { criarUsuario } from "../../support/helpers/UsuarioHelper";
 
 import listarProdutoSteps from "../../support/steps/listarProduto";
-import utils from "../../support/utils";
+import utils from "../../support/utils/index";
 
 import validation from "../../support/validations/index";
 

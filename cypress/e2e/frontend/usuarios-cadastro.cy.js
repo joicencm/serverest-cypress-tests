@@ -3,8 +3,8 @@ import { criarUsuario } from "../../support/helpers/UsuarioHelper";
 import usuarioCadastroSteps from "../../support/steps/UsuarioCadastroSteps";
 import UsuarioFactory from "../../support/factories/UsuarioFactory";
 
-import validation from "../../support/validations";
-import utils from "../../support/utils";
+import validation from "../../support/validations/index";
+import utils from "../../support/utils/index";
 
 describe("Frontend - Cadastro de Usuário", () => {
   beforeEach(() => {
