@@ -198,6 +198,20 @@ npx cypress run
 
 ---
 
+## 🐞 Gestão de Defeitos
+
+Durante a execução dos testes foram identificados cenários de melhoria na aplicação.
+
+Os bugs encontrados foram documentados utilizando GitHub Issues, contendo:
+
+- Descrição do problema;
+- Ambiente de execução;
+- Passos para reprodução;
+- Resultado esperado;
+- Evidências.
+
+---
+
 ## 👩‍💻 Sobre a autora
 
 **Joice Nascimento**  
