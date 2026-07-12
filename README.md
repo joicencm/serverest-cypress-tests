@@ -212,6 +212,15 @@ Os bugs encontrados foram documentados utilizando GitHub Issues, contendo:
 
 ---
 
+## 🚀 Evoluções Planejadas
+
+- [ ] Adicionar testes de acessibilidade com **cypress-axe**.
+- [ ] Executar testes em múltiplos navegadores via GitHub Actions.
+- [ ] Aumentar a cobertura de cenários negativos e casos de borda.
+- [ ] Implementar **Cucumber (BDD)** para escrita de cenários em Gherkin.
+
+---
+
 ## 👩‍💻 Sobre a autora
 
 **Joice Nascimento**  
