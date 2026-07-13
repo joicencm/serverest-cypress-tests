@@ -29,8 +29,8 @@ Validação dos principais fluxos realizados pelo usuário através da interface
 - Login de usuário;
 - Cadastro de usuários;
 - Pesquisa de produtos;
-- Adição de produtos ao carrinho;
-- Remoção de produtos do carrinho.
+- Adição de produtos à lista;
+- Remoção de produtos da lista.
 
 ## API Testing
 
