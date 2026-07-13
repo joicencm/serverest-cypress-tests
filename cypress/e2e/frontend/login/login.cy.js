@@ -1,9 +1,9 @@
-import { criarUsuario } from "../../support/helpers/usuarioHelper";
+import { criarUsuario } from "../../../support/helpers/usuarioHelper";
 
-import loginSteps from "../../support/steps/loginSteps";
-import LoginFactory from "../../support/factories/loginFactory";
+import loginSteps from "../../../support/steps/loginSteps";
+import LoginFactory from "../../../support/factories/loginFactory";
 
-import validation from "../../support/validations/index";
+import validation from "../../../support/validations/index";
 
 describe("Frontend - Login", () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe("Frontend - Login", () => {
   });
 
   it("Deve realizar login com sucesso", () => {
-    criarUsuario();
+    criarUsuario("usuarioComum");
 
     validation.verificarLoginComSucesso();
   });

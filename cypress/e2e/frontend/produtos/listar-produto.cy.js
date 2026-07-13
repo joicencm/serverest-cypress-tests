@@ -1,9 +1,9 @@
-import { criarUsuario } from "../../support/helpers/usuarioHelper";
+import { criarUsuario } from "../../../support/helpers/usuarioHelper";
 
-import listarProdutoSteps from "../../support/steps/listarProduto";
-import utils from "../../support/utils/index";
+import listarProdutoSteps from "../../../support/steps/listarProduto";
+import utils from "../../../support/utils/index";
 
-import validation from "../../support/validations/index";
+import validation from "../../../support/validations/index";
 
 describe("Frontend - Lista de Produtos", () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe("Frontend - Lista de Produtos", () => {
   });
 
   it("Deve adicionar produto a lista com sucesso", () => {
-    criarUsuario();
+    criarUsuario("usuarioComum");
 
     utils.aguardar(1000);
     listarProdutoSteps.pesquisarProduto("Logitech MX Vertical");

@@ -1,7 +1,7 @@
 import utils from "../utils";
 
 const UsuarioFactory = {
-  novoUsuario(administrador = false) {
+  usuarioComum(administrador = false) {
     return {
       nome: utils.gerarNome(),
       email: utils.gerarEmail("comum"),
