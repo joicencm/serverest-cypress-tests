@@ -1,10 +1,10 @@
-import { criarUsuario } from "../../support/helpers/usuarioHelper";
+import { criarUsuario } from "../../../support/helpers/usuarioHelper";
 
-import usuarioCadastroSteps from "../../support/steps/usuarioCadastroSteps";
-import UsuarioFactory from "../../support/factories/usuarioFactory";
+import usuarioCadastroSteps from "../../../support/steps/usuarioCadastroSteps";
+import UsuarioFactory from "../../../support/factories/usuarioFactory";
 
-import validation from "../../support/validations/index";
-import utils from "../../support/utils/index";
+import validation from "../../../support/validations/index";
+import utils from "../../../support/utils/index";
 
 describe("Frontend - Cadastro de Usuário", () => {
   beforeEach(() => {
@@ -12,8 +12,15 @@ describe("Frontend - Cadastro de Usuário", () => {
   });
 
   it("Deve realizar cadastro com sucesso", function () {
-    criarUsuario();
+    criarUsuario("usuarioComum");
 
+    validation.validaMensagem("Cadastro realizado com sucesso");
+  });
+
+  it("Deve realizar cadastro de usuário administrador com sucesso", function () {
+    const usuario = criarUsuario("admin");
+
+    expect(usuario.administrador).to.equal("true");
     validation.validaMensagem("Cadastro realizado com sucesso");
   });
 
@@ -25,7 +32,7 @@ describe("Frontend - Cadastro de Usuário", () => {
   // });
 
   it("Deve exibir mensagem para email já cadastrado", function () {
-    const usuario = UsuarioFactory.novoUsuario();
+    const usuario = UsuarioFactory.usuarioComum();
 
     // Primeiro cadastro
     usuarioCadastroSteps.realizarCadastro(usuario);
