@@ -18,32 +18,25 @@ Criar uma suíte de testes automatizados capaz de validar os principais fluxos d
 
 ---
 
-# 🧪 Estratégia de Testes
+## 🧪 Estratégia de Testes
 
-O projeto contempla diferentes níveis de validação:
+O projeto contempla testes automatizados de interface (E2E) e de API, cobrindo os principais fluxos da aplicação.
 
-## Frontend (E2E)
+### Frontend (E2E)
 
-Validação dos principais fluxos realizados pelo usuário através da interface:
-
-- Login de usuário;
+- Fluxo de autenticação de usuários;
 - Cadastro de usuários;
 - Pesquisa de produtos;
-- Adição de produtos à lista;
-- Remoção de produtos da lista.
+- Gerenciamento da lista de produtos.
 
-## API Testing
+### API
 
-Validação dos serviços REST da aplicação:
-
-- Criação de usuários;
-- Autenticação via API;
-- Cadastro de produtos;
-- Consulta de produtos;
-- Atualização de produtos;
-- Exclusão de produtos;
-- Validação de respostas HTTP;
-- Validação de payloads e regras de negócio.
+- Cadastro de usuários;
+- Autenticação;
+- CRUD de produtos;
+- Validação de códigos de status HTTP;
+- Validação de contratos (JSON Schema);
+- Validação de regras de negócio.
 
 ---
 
@@ -119,14 +112,14 @@ serverest-cypress-tests
 - ✔ Login com sucesso
 - ✔ Cadastro de usuário
 - ✔ Pesquisa de produtos
-- ✔ Adição de produto ao carrinho
-- ✔ Remoção de produto do carrinho
+- ✔ Adição de produto à lista
+- ✔ Remoção de produto da lista
 
 ### API
 
 - ✔ Criar usuário
 - ✔ Realizar login
-- ✔ Criar produto autenticado
+- ✔ Criar produto
 - ✔ Listar produtos
 - ✔ Atualizar produto
 - ✔ Excluir produto
