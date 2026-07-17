@@ -1,8 +1,6 @@
 import { criarUsuario } from "../../../support/helpers/usuarioHelper";
 
 import listarProdutoSteps from "../../../support/steps/listarProduto";
-import utils from "../../../support/utils/index";
-
 import validation from "../../../support/validations/index";
 
 describe("Frontend - Lista de Produtos", () => {
@@ -13,7 +11,6 @@ describe("Frontend - Lista de Produtos", () => {
   it("Deve adicionar produto a lista com sucesso", () => {
     criarUsuario("usuarioComum");
 
-    utils.aguardar(1000);
     listarProdutoSteps.pesquisarProduto("Logitech MX Vertical");
     listarProdutoSteps.adicionarProdutoNaLista("Logitech MX Vertical");
     cy.contains("Logitech MX Vertical").should("be.visible");

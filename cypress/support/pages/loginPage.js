@@ -6,11 +6,11 @@ class LoginPage {
   }
 
   preencherEmail(email) {
-    cy.get(LoginElements.emailInput).type(email);
+    cy.get(LoginElements.emailInput).clear().type(email);
   }
 
   preencherSenha(password) {
-    cy.get(LoginElements.senhaInput).type(password);
+    cy.get(LoginElements.senhaInput).clear().type(password);
   }
 
   clicarBotaoEntrar() {

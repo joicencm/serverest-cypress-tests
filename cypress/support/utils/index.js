@@ -33,11 +33,6 @@ const utils = {
     return `${nome} ${sobrenome}`;
   },
 
-  // Utilitário para aguardar
-  aguardar(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  },
-
   // Gerador função genérica
   gerarTextoUnico(prefixo = "") {
     return `${prefixo}${Date.now()}${Math.floor(Math.random() * 10000)}`;
