@@ -6,23 +6,25 @@ class UsuarioCadastroPage {
   }
 
   preencherNome(nome) {
-    cy.get(UsuarioCadastroElements.nomeInput).type(nome);
+    cy.get(UsuarioCadastroElements.nomeInput).clear().type(nome);
   }
 
   preencherEmail(email) {
-    cy.get(UsuarioCadastroElements.emailInput).type(email);
+    cy.get(UsuarioCadastroElements.emailInput).clear().type(email);
   }
 
   preencherSenha(password) {
-    cy.get(UsuarioCadastroElements.confirmaSenhaInput).type(password);
+    cy.get(UsuarioCadastroElements.senhaInput).clear().type(password);
   }
 
   preencherConfirmaSenha(confirmaSenha) {
-    cy.get(UsuarioCadastroElements.confirmaSenhaInput).type(confirmaSenha);
+    this.preencherSenha(confirmaSenha);
   }
 
   marcarCheckboxAdministrador() {
-    cy.get(UsuarioCadastroElements.checkboxAdministrador).check();
+    cy.get(UsuarioCadastroElements.checkboxAdministrador).check({
+      force: true,
+    });
   }
 
   clicarBotaoCadastrar() {

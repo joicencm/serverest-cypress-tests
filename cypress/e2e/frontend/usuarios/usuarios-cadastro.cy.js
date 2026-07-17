@@ -4,7 +4,6 @@ import usuarioCadastroSteps from "../../../support/steps/usuarioCadastroSteps";
 import UsuarioFactory from "../../../support/factories/usuarioFactory";
 
 import validation from "../../../support/validations/index";
-import utils from "../../../support/utils/index";
 
 describe("Frontend - Cadastro de Usuário", () => {
   beforeEach(() => {
@@ -49,9 +48,7 @@ describe("Frontend - Cadastro de Usuário", () => {
   });
 
   it("Deve exibir mensagem para camopos obrigatórios não preenchidos", function () {
-    console.log(usuarioCadastroSteps);
     usuarioCadastroSteps.clicarCadastrar();
-    utils.aguardar(1000);
     validation.validaMensagem("Nome é obrigatório");
     validation.validaMensagem("Email é obrigatório");
     validation.validaMensagem("Password é obrigatório");

@@ -12,8 +12,7 @@ class ListarProdutoPage {
 
   ListaProdutoAdicionado(nomeProduto) {
     cy.get(ListarProdutoElements.menuListarCompras).click();
-    cy.wait(3000); // Adiciona uma espera para garantir que a página seja carregada antes de verificar o produto
-    cy.contains(nomeProduto).should("be.visible");
+    cy.contains(nomeProduto, { timeout: 10000 }).should("be.visible");
   }
 
   removerProdutoDaLista() {

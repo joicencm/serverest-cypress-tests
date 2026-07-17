@@ -6,7 +6,7 @@ const listarProdutoSteps = {
   },
   adicionarProdutoNaLista(nomeProduto) {
     ListarProdutoPage.adicionarProdutoAoCarrinho();
-    cy.contains(nomeProduto);
+    cy.contains(nomeProduto, { timeout: 10000 }).should("be.visible");
   },
 
   ListaProdutoAdicionado(nomeProduto) {

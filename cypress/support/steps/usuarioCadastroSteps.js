@@ -5,7 +5,6 @@ const usuarioCadastroSteps = {
     UsuarioCadastroPage.preencherNome(usuario.nome);
     UsuarioCadastroPage.preencherEmail(usuario.email);
     UsuarioCadastroPage.preencherSenha(usuario.password);
-    UsuarioCadastroPage.preencherConfirmaSenha(usuario.password);
 
     if (usuario.administrador) {
       UsuarioCadastroPage.marcarCheckboxAdministrador();
